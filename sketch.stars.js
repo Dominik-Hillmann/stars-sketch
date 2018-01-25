@@ -1,9 +1,10 @@
 // contains the main functions setup() and draw()
 
-const NUM_STARS = 50;
-const PROP_SHINE_STAR = 0.1; // proportion of shining stars on the canvas
+const NUM_STARS = 70;
+const PROB_SHINE_STAR = 0.1; // proportion of shining stars on the canvas
 
 var stars = []; // arr containing all Stars on the canvas
+var shiningStars = [];
 
 
 function setup()
@@ -15,19 +16,26 @@ function setup()
    cnv.position(0, 0);
    cnv.style("z-index", "-1");
 
-   for(var i = 0; i < NUM_STARS; i++)
+   for(var i = 0; i < Math.floor((1 - PROB_SHINE_STAR) * NUM_STARS); i++)
    {
       stars.push(new Star
       (
          randInt(0, width),
          randInt(0, height),
-         10,
-         10
+         2,
+         5,
+         255 / 15,
+         0.005
       ));
    }
 
-   for(star of stars)
-      console.log(star.pos.x, "|", star.pos.y);
+   for(var i = 0; i < Math.floor(PROB_SHINE_STAR * NUM_STARS); i++)
+   {
+      //shiningStars.push();
+   }
+
+   //for(star of stars)
+      //console.log(star.pos.x, "|", star.pos.y);
 }
 
 function draw()
@@ -38,11 +46,16 @@ function draw()
 
    for(var i = 0; i < stars.length; i++)
       stars[i].render();
-
-   ellipse(width / 2, height / 2, 10);
 }
 
 function randInt(min, max)
 {
    return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+
+/*
+TODO:
+- Halos around the shining stars
+- background: color gradient
+*/

@@ -25,7 +25,7 @@ function setup()
          2,
          5,
          255 / 15,
-         0.005
+         0.0005
       ));
    }
 
@@ -33,7 +33,8 @@ function setup()
    {
       //shiningStars.push();
    }
-
+   var test = new ShiningStar(randInt(0, width), randInt(0, height), 2, 5, 255 / 15, 0.0005);
+   test.twinkle();
    //for(star of stars)
       //console.log(star.pos.x, "|", star.pos.y);
 }

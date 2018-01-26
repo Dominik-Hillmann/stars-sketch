@@ -63,15 +63,43 @@ class Star
       ellipse(this.pos.x, this.pos.y, this.size);
    }
 
-   randInt(min, max){ return Math.floor(Math.random() * (max - min + 1) + min); }
+   randInt(min, max) { return Math.floor(Math.random() * (max - min + 1) + min); }
 }
-/*
+
 // star with a halo
 class ShiningStar extends Star
 {
-   constructor(x, y, minSize, maxSize)
+   constructor(x, y, minSize, maxSize, twinkleStep, twinkleChance)
    {
-      super(x, y, minSize, maxSize);
+      super(x, y, minSize, maxSize, twinkleStep, twinkleChance);
+
+      this.corona =
+      {
+         inner:
+         {
+            size: randInt(),
+            brightness: /*!!!!!!*/
+         },
+
+         outer:
+         {
+            size: ,
+            brightness:
+         }
+      };
+      // this.corona.inner.size = 20;
+      // this.corona.outer.size = 30;
+
+   }
+
+   twinkle()
+   {
+      console.log("Test erfolgreich.");
+      console.log(this.corona.inner);
+   }
+
+   render()
+   {
+
    }
 }
-*/
